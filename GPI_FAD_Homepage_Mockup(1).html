@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPI Fixed Asset Hub — Home</title>
+<title>GPI Fixed Asset Disposal — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* ─── RESET & BASE ─────────────────────────────────────────────────────── */
@@ -611,6 +611,87 @@ body {
   margin: 0 48px;
 }
 
+/* ─── MY TICKETS ────────────────────────────────────────────────────────── */
+.pa-deeplink {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--gpi-green); text-decoration: none;
+  transition: gap .15s;
+}
+.pa-deeplink:hover { gap: 10px; text-decoration: underline; }
+.pa-deeplink-top { margin-bottom: 14px; display: flex; }
+.pa-deeplink-bottom { margin-top: 16px; display: flex; }
+
+.pa-embed-wrapper {
+  border: 1px solid #c8c6c4; border-radius: 4px;
+  overflow: hidden; background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.pa-embed-topbar {
+  background: #f3f2f1; border-bottom: 1px solid #c8c6c4;
+  padding: 8px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.pa-powered-label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: #605e5c;
+}
+.pa-open-link {
+  font-size: 12px; font-weight: 600; color: var(--gpi-green);
+  text-decoration: none; font-family: 'Outfit', sans-serif;
+}
+.pa-open-link:hover { text-decoration: underline; }
+.pa-canvas { padding: 20px 24px; }
+.pa-stats-row {
+  display: flex; gap: 24px; margin-bottom: 20px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.pa-stat-box { text-align: center; min-width: 80px; }
+.pa-stat-num {
+  font-family: 'Outfit', sans-serif; font-size: 28px;
+  font-weight: 800; line-height: 1; letter-spacing: -0.03em;
+}
+.pa-stat-lbl {
+  font-size: 11px; color: var(--text-muted); margin-top: 4px;
+  font-weight: 500; text-transform: uppercase; letter-spacing: .05em;
+}
+.pa-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.pa-table thead tr { background: #f3f2f1; border-bottom: 2px solid var(--border); }
+.pa-table th {
+  padding: 10px 12px; text-align: left;
+  font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .07em; color: var(--text-muted);
+}
+.pa-table td {
+  padding: 12px 12px; border-bottom: 1px solid var(--border);
+  color: var(--text-secondary); vertical-align: middle;
+}
+.pa-table tr:last-child td { border-bottom: none; }
+.pa-table tr:hover td { background: #faf9f8; }
+.pa-id {
+  font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700;
+  color: var(--gpi-green); background: #e8f5ee;
+  padding: 2px 8px; border-radius: 4px; white-space: nowrap;
+}
+.pa-type {
+  font-size: 11px; font-weight: 600; padding: 2px 8px;
+  border-radius: 20px; white-space: nowrap;
+  font-family: 'Outfit', sans-serif; letter-spacing: .03em;
+}
+.pa-type-wbs  { background: #e8f0f8; color: #1a5c8a; }
+.pa-type-at   { background: #e8f5ee; color: var(--gpi-green); }
+.pa-type-ot   { background: #f0ecf8; color: #5a4a8a; }
+.pa-badge {
+  font-size: 11px; font-weight: 700; padding: 3px 10px;
+  border-radius: 20px; white-space: nowrap;
+  font-family: 'Outfit', sans-serif; letter-spacing: .03em;
+}
+.pa-badge-pending  { background: #fff4ce; color: #7d5a00; }
+.pa-badge-exec     { background: #e8f0f8; color: #1a5c8a; }
+.pa-badge-overdue  { background: #fde7e9; color: #a4262c; }
+.pa-badge-complete { background: #dff6dd; color: #107c10; }
+
 /* ─── WATERMARK ─────────────────────────────────────────────────────────── */
 .mockup-badge {
   position: fixed; bottom: 20px; right: 20px; z-index: 999;
@@ -827,6 +908,111 @@ body {
     </a>
 
   </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── MY TICKETS ─────────────────────────────────────────────────────────── -->
+<div class="section alt" id="my-tickets">
+  <div class="section-header">
+    <div class="section-eyebrow">My Tickets</div>
+    <div class="section-title">Your Recent Submissions</div>
+    <div class="section-subtitle">Your 5 most recent ticket submissions and their current status.</div>
+  </div>
+
+  <!-- Link above -->
+  <a href="#" class="pa-deeplink pa-deeplink-top">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    Open My Tickets in Power Apps
+  </a>
+
+  <!-- Simulated Power Apps embed -->
+  <div class="pa-embed-wrapper">
+    <div class="pa-embed-topbar">
+      <span class="pa-powered-label">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Powered by Power Apps — data refreshes on page load
+      </span>
+      <a href="#" class="pa-open-link">Open in Power Apps ↗</a>
+    </div>
+
+    <div class="pa-canvas">
+      <!-- Summary stats -->
+      <div class="pa-stats-row">
+        <div class="pa-stat-box">
+          <div class="pa-stat-num" style="color:#f0a500;">2</div>
+          <div class="pa-stat-lbl">Pending Approval</div>
+        </div>
+        <div class="pa-stat-box">
+          <div class="pa-stat-num" style="color:#0078d4;">1</div>
+          <div class="pa-stat-lbl">Awaiting Execution</div>
+        </div>
+        <div class="pa-stat-box">
+          <div class="pa-stat-num" style="color:#a4262c;">1</div>
+          <div class="pa-stat-lbl">30+ Days Outstanding</div>
+        </div>
+        <div class="pa-stat-box">
+          <div class="pa-stat-num" style="color:#107c10;">1</div>
+          <div class="pa-stat-lbl">Completed</div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <table class="pa-table">
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Submitted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="pa-id">FA-2026-041</span></td>
+            <td>WBS Closeout — Line 4 Conveyor Upgrade</td>
+            <td><span class="pa-type pa-type-wbs">WBS Closeout</span></td>
+            <td><span class="pa-badge pa-badge-pending">Pending Approval</span></td>
+            <td>3 days ago</td>
+          </tr>
+          <tr>
+            <td><span class="pa-id">FA-2026-038</span></td>
+            <td>Asset Transfer — Forklift #7 to Plant 22</td>
+            <td><span class="pa-type pa-type-at">Asset Transfer</span></td>
+            <td><span class="pa-badge pa-badge-exec">Awaiting Execution</span></td>
+            <td>8 days ago</td>
+          </tr>
+          <tr>
+            <td><span class="pa-id">FA-2026-033</span></td>
+            <td>WBS Closeout — Roof HVAC Replacement P18</td>
+            <td><span class="pa-type pa-type-wbs">WBS Closeout</span></td>
+            <td><span class="pa-badge pa-badge-pending">Pending Approval</span></td>
+            <td>14 days ago</td>
+          </tr>
+          <tr>
+            <td><span class="pa-id">FA-2026-019</span></td>
+            <td>Other — Asset number correction request</td>
+            <td><span class="pa-type pa-type-ot">Other</span></td>
+            <td><span class="pa-badge pa-badge-overdue">30+ Days</span></td>
+            <td>34 days ago</td>
+          </tr>
+          <tr>
+            <td><span class="pa-id">FA-2026-011</span></td>
+            <td>Asset Transfer — Packaging line equipment P6</td>
+            <td><span class="pa-type pa-type-at">Asset Transfer</span></td>
+            <td><span class="pa-badge pa-badge-complete">Completed</span></td>
+            <td>47 days ago</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Link below -->
+  <a href="#" class="pa-deeplink pa-deeplink-bottom">
+    View all my tickets in Power Apps →
+  </a>
 </div>
 
 <div class="divider"></div>
